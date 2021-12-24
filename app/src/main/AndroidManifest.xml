@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Alpha_Project">
         <activity
+            android:name=".NFC_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".ShareActivity"
+            android:exported="false" />
+        <activity
             android:name=".SettingsActivity"
             android:exported="false" />
         <activity
