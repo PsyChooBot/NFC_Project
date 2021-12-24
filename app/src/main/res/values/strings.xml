@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Alpha_Project</string>
+
+    <!--variabili della schemata principale-->
+    <string name="share">SHARE</string>
+    <string name="settings">SETTINGS</string>
+
+    <!--variabili schermata di settings-->
+    <string name="nome">Name</string>
+    <string name="cognome">Surname</string>
+    <string name="numero_telefono">Phone Number</string>
+    <string name="mail">E-Mail</string>
+    <string name="instagram">Instagram Tag</string>
+    <string name="linkedin">LinkedinTag</string>
+</resources>
