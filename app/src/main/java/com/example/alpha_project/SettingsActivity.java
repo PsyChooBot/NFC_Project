@@ -1,10 +1,10 @@
 package com.example.alpha_project;
 
-import android.os.Bundle;
-
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Settings extends AppCompatActivity {
+import android.os.Bundle;
+
+public class SettingsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
