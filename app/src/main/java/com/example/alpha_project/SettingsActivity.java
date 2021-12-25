@@ -31,12 +31,20 @@ public class SettingsActivity extends AppCompatActivity {
         data.putString("E-mail", email.getText().toString());
         data.putString("Instagram Tag", instagram.getText().toString());
         data.putString("Linkedin", linkedin.getText().toString());
- 
+
         Intent intent = new Intent(this,MainActivity.class);
         intent.putExtra(Intent.EXTRA_TEXT, data);
         setResult(RESULT_OK, intent);
         finish();
     }
 
+/*  Metodo reset button
+  public void RESET(View View){
 
+        Intent intent = new Intent(this, Office_Utils.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+
+    }
+*/
 }

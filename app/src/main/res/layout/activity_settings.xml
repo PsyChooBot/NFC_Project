@@ -127,5 +127,13 @@
         android:onClick="Save_Return"
         tools:ignore="UsingOnClickInXml" />
 
+        <!-- Reset Button
+        <Button android:id="@+id/RESETBTN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:onClick="RESET"
+        android:text="@string/RESET" />-->
+
     </LinearLayout>
 </ScrollView>
