@@ -6,7 +6,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp"
+        android:padding="26dp"
         android:orientation="vertical"
     tools:context=".SettingsActivity">
 
@@ -27,15 +27,13 @@
         android:layout_marginBottom="5dp"
         android:textColor="@color/black"
         android:textSize="20sp"
-
         android:text="@string/nome"
         />
     <EditText android:id="@+id/nome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/nome"
-        android:inputType="text"
-        android:autofillHints="Not Given"/>
+        android:inputType="text" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -49,8 +47,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/cognome"
-        android:inputType="text"
-        android:autofillHints="Not Given" />
+        android:inputType="text" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -65,8 +62,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/numero_telefono"
-        android:inputType="phone"
-        android:autofillHints="Not Given" />
+        android:inputType="phone" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -81,7 +77,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/mail"
-        android:autofillHints="Not Given"
         android:inputType="textEmailAddress" />
     <TextView
         android:layout_width="wrap_content"
@@ -97,7 +92,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/instagram"
-        android:autofillHints="Not Given"
         tools:ignore="TextFields" />
     <TextView
         android:layout_width="wrap_content"
@@ -113,27 +107,47 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/linkedin"
-        android:autofillHints="Not Given"
         tools:ignore="TextFields" />
-    <Button
-        android:id="@+id/button2"
-        android:layout_marginTop="50dp"
-        android:layout_gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:backgroundTint="@color/teal_700"
-        android:text="@string/save_return"
-        android:onClick="Save_Return"
-        tools:ignore="UsingOnClickInXml" />
 
-        <!-- Reset Button
-        <Button android:id="@+id/RESETBTN"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:onClick="RESET"
-        android:text="@string/RESET" />-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+            <Button
+                android:id="@+id/create"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="left"
+                android:layout_marginEnd="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/teal_700"
+                android:text="@string/create"
+                tools:ignore="ButtonStyle" />
+
+            <!-- Reset Button-->
+            <Button android:id="@+id/RESETBTN"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginEnd="10dp"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/teal_700"
+                android:text="@string/reset"
+                tools:ignore="ButtonStyle" />
+
+            <Button android:id="@+id/ritorno"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/teal_700"
+                android:text="@string/ritorno"
+                tools:ignore="ButtonStyle" />
+
+
+        </LinearLayout>
 
     </LinearLayout>
 </ScrollView>

@@ -13,5 +13,8 @@
     <string name="mail">E-Mail</string>
     <string name="instagram">Instagram Tag</string>
     <string name="linkedin">LinkedinTag</string>
-    <string name="save_return">Save &amp; Return</string>
+    <string name="create">Vcard</string>
+    <string name="reset">Reset</string>
+    <string name="ritorno">Return</string>
+
 </resources>
