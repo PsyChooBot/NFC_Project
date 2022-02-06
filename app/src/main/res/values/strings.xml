@@ -16,5 +16,6 @@
     <string name="create">Vcard</string>
     <string name="reset">Reset</string>
     <string name="ritorno">Return</string>
+    <string name="save">Save</string>
 
 </resources>
