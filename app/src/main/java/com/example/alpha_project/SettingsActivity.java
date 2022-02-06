@@ -18,7 +18,7 @@ public class SettingsActivity extends AppCompatActivity {
     public File f;
     public static final String MyPREFERENCES = "MyPrefs" ;
     public static final String Name = "nameKey";
-    public static final String Surname = "nameKey";
+    public static final String Surname = "surnameKey";
     public static final String Phone = "phoneKey";
     public static final String Email = "emailKey";
     public static final String Ins = "insKey";
@@ -59,22 +59,20 @@ public class SettingsActivity extends AppCompatActivity {
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String n = etname.getText().toString();
-                String su = etsurname.getText().toString();
-                String ph = etphon.getText().toString();
-                String e = etmail.getText().toString();
-                String i = etins.getText().toString();
-                String l = etlinke.getText().toString();
 
-                SharedPreferences.Editor editor = sharedpreferences.edit();
-                editor.putString(Name, n);
-                editor.putString(Surname, su);
-                editor.putString(Phone, ph);
-                editor.putString(Email, e);
-                editor.putString(Ins, i);
-                editor.putString(Linke, l);
+                SharedPreferences.Editor name = sharedpreferences.edit().putString(Name, etname.getText().toString());
+                name.apply();
+                SharedPreferences.Editor surname = sharedpreferences.edit().putString(Surname, etsurname.getText().toString());
+                surname.apply();
+                SharedPreferences.Editor phone = sharedpreferences.edit().putString(Phone, etphon.getText().toString());
+                phone.apply();
+                SharedPreferences.Editor e_mail = sharedpreferences.edit().putString(Email, etmail.getText().toString());
+                e_mail.apply();
+                SharedPreferences.Editor instagram = sharedpreferences.edit().putString(Ins, etins.getText().toString());
+                instagram.apply();
+                SharedPreferences.Editor linkedin = sharedpreferences.edit().putString(Linke, etlinke.getText().toString());
+                linkedin.apply();
 
-                editor.apply();
                 Toast.makeText(SettingsActivity.this,"Saved",Toast.LENGTH_LONG).show();
             }
         });
