@@ -60,19 +60,22 @@ public class SettingsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                SharedPreferences.Editor name = sharedpreferences.edit().putString(Name, etname.getText().toString());
-                name.apply();
-                SharedPreferences.Editor surname = sharedpreferences.edit().putString(Surname, etsurname.getText().toString());
-                surname.apply();
-                SharedPreferences.Editor phone = sharedpreferences.edit().putString(Phone, etphon.getText().toString());
-                phone.apply();
-                SharedPreferences.Editor e_mail = sharedpreferences.edit().putString(Email, etmail.getText().toString());
-                e_mail.apply();
-                SharedPreferences.Editor instagram = sharedpreferences.edit().putString(Ins, etins.getText().toString());
-                instagram.apply();
-                SharedPreferences.Editor linkedin = sharedpreferences.edit().putString(Linke, etlinke.getText().toString());
-                linkedin.apply();
+                String n = etname.getText().toString();
+                String su = etsurname.getText().toString();
+                String ph = etphon.getText().toString();
+                String e = etmail.getText().toString();
+                String i = etins.getText().toString();
+                String l = etlinke.getText().toString();
 
+                SharedPreferences.Editor editor = sharedpreferences.edit();
+                editor.putString(Name, n);
+                editor.putString(Surname, su);
+                editor.putString(Phone, ph);
+                editor.putString(Email, e);
+                editor.putString(Ins, i);
+                editor.putString(Linke, l);
+
+                editor.apply();
                 Toast.makeText(SettingsActivity.this,"Saved",Toast.LENGTH_LONG).show();
             }
         });
@@ -107,6 +110,22 @@ public class SettingsActivity extends AppCompatActivity {
       etins.setText(null);
       etmail.setText(null);
       etlinke.setText(null);
+      String n = etname.getText().toString();
+      String su = etsurname.getText().toString();
+      String ph = etphon.getText().toString();
+      String e = etmail.getText().toString();
+      String i = etins.getText().toString();
+      String l = etlinke.getText().toString();
+
+      SharedPreferences.Editor editor = sharedpreferences.edit();
+      editor.putString(Name, n);
+      editor.putString(Surname, su);
+      editor.putString(Phone, ph);
+      editor.putString(Email, e);
+      editor.putString(Ins, i);
+      editor.putString(Linke, l);
+
+      editor.apply();
       Toast.makeText(SettingsActivity.this,"Reseted",Toast.LENGTH_LONG).show();
     }
 
