@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.alpha_project">
+    <!--We need these two permissions to read and write details from external storage of user’s mobile device. -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
   <!--Richiesta dei permessi per NFC e External Storage, poniamo anche il fatto che è obbligatorio avere nfc per avviare l'app-->
    <uses-permission android:name="android.permission.NFC" />
     <uses-permission
@@ -24,7 +28,7 @@
             android:exported="false" />
         <activity
             android:name=".SettingsActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

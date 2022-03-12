@@ -8,13 +8,20 @@
 
     <!--variabili schermata di settings-->
     <string name="nome">Name</string>
+    <string name="name">Enter your Name</string>
     <string name="cognome">Surname</string>
+    <string name="surname">Enter your Surname</string>
     <string name="numero_telefono">Phone Number</string>
+    <string name="contact">Enter your Phone Number</string>
     <string name="mail">E-Mail</string>
-    <string name="instagram">Instagram Tag</string>
-    <string name="linkedin">LinkedinTag</string>
+    <string name="email">Enter your E-Mail</string>
+    <string name="instagram">Instagram ID</string>
+    <string name="ins">Enter your Instagram ID</string>
+    <string name="linkedin">LinkedIn ID</string>
+    <string name="Linkedin">Enter your LinkedIn ID</string>
     <string name="reset">Reset</string>
     <string name="ritorno">Return</string>
     <string name="save">Save</string>
+    <string name="vcard">Create a vcard</string>
 
 </resources>

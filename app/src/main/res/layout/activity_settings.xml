@@ -32,7 +32,7 @@
     <EditText android:id="@+id/nome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/nome"
+        android:hint="@string/name"
         android:inputType="text" />
     <TextView
         android:layout_width="wrap_content"
@@ -46,7 +46,7 @@
     <EditText android:id="@+id/cognome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/cognome"
+        android:hint="@string/surname"
         android:inputType="text" />
     <TextView
         android:layout_width="wrap_content"
@@ -61,7 +61,7 @@
     <EditText android:id="@+id/phone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/numero_telefono"
+        android:hint="@string/contact"
         android:inputType="phone" />
     <TextView
         android:layout_width="wrap_content"
@@ -76,7 +76,7 @@
     <EditText android:id="@+id/mail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/mail"
+        android:hint="@string/email"
         android:inputType="textEmailAddress" />
     <TextView
         android:layout_width="wrap_content"
@@ -91,7 +91,7 @@
     <EditText android:id="@+id/instagram"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/instagram"
+        android:hint="@string/ins"
         tools:ignore="TextFields" />
     <TextView
         android:layout_width="wrap_content"
@@ -106,13 +106,15 @@
     <EditText android:id="@+id/linkedin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/linkedin"
+        android:inputType="textUri"
+        android:hint="@string/Linkedin"
         tools:ignore="TextFields" />
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="10dp"
             android:orientation="horizontal" >
 
             <Button
@@ -120,37 +122,53 @@
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:layout_gravity="left"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
+                android:layout_marginEnd="20dp"
                 android:textColor="@color/black"
+                android:textSize="16sp"
                 android:backgroundTint="@color/teal_700"
                 android:text="@string/save"/>
 
             <!-- Reset Button-->
             <Button android:id="@+id/RESETBTN"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_gravity="start"
-                android:layout_marginEnd="10dp"
+                android:layout_width="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginEnd="20dp"
                 android:textColor="@color/black"
+                android:textSize="16sp"
                 android:backgroundTint="@color/teal_700"
                 android:text="@string/reset"
                 tools:ignore="ButtonStyle" />
 
             <Button android:id="@+id/ritorno"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="10dp"
+                android:layout_width="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginEnd="20dp"
                 android:textColor="@color/black"
+                android:textSize="16sp"
                 android:backgroundTint="@color/teal_700"
-                android:text="@string/ritorno"
-                tools:ignore="ButtonStyle" />
+                android:text="@string/ritorno" />
+
 
 
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            >
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/vcard" />
+
 
     </LinearLayout>
 </ScrollView>

@@ -1,21 +1,33 @@
 package com.example.alpha_project;
 
-import android.content.Intent;
+import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-import androidx.appcompat.app.AppCompatActivity;
-import java.io.File;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Calendar;
 
 
 public class SettingsActivity extends AppCompatActivity {
 
     protected EditText etname, etphon,etmail,etsurname, etins, etlinke;
-    public File f;
+    //Input per creare un file vcf
+    private Button btn;
+    private static final String VCF_DIRECTORY = "/vcf_contact";
+    private File vcfFile;
+
     public static final String MyPREFERENCES = "MyPrefs" ;
     public static final String Name = "nameKey";
     public static final String Surname = "surnameKey";
@@ -35,6 +47,7 @@ public class SettingsActivity extends AppCompatActivity {
         etmail = findViewById(R.id.mail);
         etins= findViewById(R.id.instagram);
         etlinke= findViewById(R.id.linkedin);
+
 
         /* Imposto i valori dell'EditText con i valori memorizzati : per esempio quando esco dall'activity setting e ritorno al main avendo richiamato nel codice onPause salvo 
         le varie informazioni e se non avevo scritto niente di default salvo il valore di default*/
@@ -76,7 +89,9 @@ public class SettingsActivity extends AppCompatActivity {
                 editor.putString(Linke, l);
 
                 editor.apply();
-                Toast.makeText(SettingsActivity.this,"Saved",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Saved"+" \nName -  " + etname.getText().toString() + " \n" + "Cognome -  " + etsurname.getText().toString()
+                        + "\nE-Mail -  " + etmail.getText().toString() + " \n" + "Contact -  " + etphon.getText().toString()+ "\nInstagram -  " + etins.getText().toString()
+                        +"\nLinkedin -  " + etlinke.getText().toString(), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -100,9 +115,64 @@ public class SettingsActivity extends AppCompatActivity {
             }
 
         });
+        //Bottone per creare il file vcf
+        btn = (Button) findViewById(R.id.btn);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                try {
+                        File vdfdirectory = createDirectory(VCF_DIRECTORY);
+                        Toast.makeText(SettingsActivity.this, "path : "+ vdfdirectory.getPath(), Toast.LENGTH_LONG).show();
+
+
+                    // have the object build the directory structure, if needed.
+
+                    /*Following line specifies name of the VCF or vCard file.
+                    Here, we will fetch current time as a name of vCard file.
+                    It also includes millisecond so that always, unique name will be generated.*/
+                    vcfFile = new File(vdfdirectory, "N:"+etname.getText().toString()+" "+etsurname.getText().toString()+ Calendar.getInstance().getTimeInMillis() + ".vcf");
+
+                    FileWriter fw = null;
+                    //below code will generate VCF or vCard file
+                    fw = new FileWriter(vcfFile);
+                    fw.write("BEGIN:VCARD\r\n");
+                    fw.write("VERSION:3.0\r\n");
+                    fw.write("N:" + etsurname.getText().toString() + "\r\n");
+                    fw.write("FN:" + etname.getText().toString() + "\r\n");
+                    fw.write("TEL:" + etphon.getText().toString() + "\r\n");
+                    fw.write("INS:" + etins.getText().toString() + "\r\n");
+                    fw.write("LINKEDIN:" + etlinke.getText().toString() + "\r\n");
+                    fw.write("EMAIL;TYPE=PREF,INTERNET:" + etmail.getText().toString() + "\r\n");
+                    fw.write("END:VCARD\r\n");
+                    fw.close();
+
+                    Toast.makeText(SettingsActivity.this, "VCard Created!", Toast.LENGTH_SHORT).show();
+                } catch (IOException e) {
+                    /*printStackTrace() helps the programmer to understand where the actual problem occurred.
+                    printStacktrace() is a method of the class Throwable of java.lang package.
+                    It prints several lines in the output console. The first line consists of several strings.
+                    It contains the name of the Throwable sub-class & the package information.
+                    From second line onwards, it describes the error position/line number beginning with at.*/
+                    e.printStackTrace();
+                }
+            }
+        });
+
     }
 
+    private File createDirectory(String vcfDirectory) {
+        File file = new File(getExternalFilesDir(null) + "/" + vcfDirectory);
+        boolean success = true;
+        if (!file.exists()) {
+            success = file.mkdir();
+        }
+        if(success)
+            Toast.makeText(getApplicationContext(),"Directory created successfully",Toast.LENGTH_LONG).show();
+        return file;
+    }
     /*  Metodo reset button*/
+  @SuppressLint("SetTextI18n")
   public void openReset(){
       etname.setText(null);
       etsurname.setText(null);
