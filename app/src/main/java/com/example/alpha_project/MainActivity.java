@@ -17,6 +17,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+
         settings = (Button) findViewById(R.id.settingsBTN);
         settings.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -27,13 +29,13 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-        share = (Button) findViewById(R.id.shareBTN);
+      /*  share = (Button) findViewById(R.id.shareBTN);
         share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openShare();
             }
-        });
+        });*/
     }
 
 
@@ -45,9 +47,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    public void openShare(){
-        Intent intent = new Intent(this,ShareActivity.class);
-        startActivity(intent);
-    }
+
 }
 

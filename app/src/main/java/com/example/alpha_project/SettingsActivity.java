@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Environment;
+import android.transition.Explode;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,7 +28,6 @@ public class SettingsActivity extends AppCompatActivity {
     private Button btn;
     private static final String VCF_DIRECTORY = "/vcf_contact";
     private File vcfFile;
-
     public static final String MyPREFERENCES = "MyPrefs" ;
     public static final String Name = "nameKey";
     public static final String Surname = "surnameKey";
@@ -40,6 +40,9 @@ public class SettingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+
+
+
 
         etname = findViewById(R.id.nome);
         etsurname = findViewById(R.id.cognome);
