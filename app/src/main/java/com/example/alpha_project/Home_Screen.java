@@ -14,6 +14,8 @@ public class Home_Screen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
 
+        getSupportActionBar().hide();
+
         h.postDelayed(new Runnable() {
             @Override
             public void run() {

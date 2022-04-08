@@ -3,23 +3,46 @@ package com.example.alpha_project;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.airbnb.lottie.LottieAnimationView;
+
 public class MainActivity extends AppCompatActivity {
-    private  Button settings;
-    private Button share;
+    private  ImageButton settings;
 
-
+    private boolean play=false;
+ LottieAnimationView lottiePlay;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        getSupportActionBar().hide();
 
 
-        settings = (Button) findViewById(R.id.settingsBTN);
+        lottiePlay = findViewById(R.id.lottiePlay);
+
+        lottiePlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(play){
+                    lottiePlay.setMinAndMaxProgress(1.0f,1.0f);
+                    lottiePlay.playAnimation();
+                    play = false;
+                } else {
+                    lottiePlay.setMinAndMaxProgress(0.0f,1.0f);
+                    lottiePlay.playAnimation();
+                    play = true;
+
+                }
+            }
+        });
+
+
+
+        settings = (ImageButton) findViewById(R.id.settingsBTN);
         settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

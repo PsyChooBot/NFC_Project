@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    android:background="@drawable/homescreen2"
+    android:background="@drawable/homepage"
     tools:context=".Home_Screen">
 
 
