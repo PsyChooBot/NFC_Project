@@ -17,12 +17,16 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
+
 import java.io.File;
 import java.net.DatagramPacket;
 
 public class NFC_Activity extends AppCompatActivity {
 
     private static final int PICKFILE_VCF_FILE= 1;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
