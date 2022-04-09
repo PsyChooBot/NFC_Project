@@ -2,18 +2,13 @@ package com.example.alpha_project;
 
 import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.os.Environment;
-import android.transition.Explode;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.airbnb.lottie.LottieAnimationView;
@@ -21,7 +16,6 @@ import com.airbnb.lottie.LottieAnimationView;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Calendar;
 
 
 public class SettingsActivity extends AppCompatActivity {
@@ -192,7 +186,9 @@ public class SettingsActivity extends AppCompatActivity {
                     fw.write("END:VCARD\r\n");
                     fw.close();
 
+
                     Toast.makeText(SettingsActivity.this, "VCard Created!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SettingsActivity.this, "path : "+ vcfdirectory.getPath(), Toast.LENGTH_LONG).show();
                 } catch (IOException e) {
                     /*printStackTrace() helps the programmer to understand where the actual problem occurred.
                     printStacktrace() is a method of the class Throwable of java.lang package.
