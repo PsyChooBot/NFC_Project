@@ -6,15 +6,22 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.airbnb.lottie.LottieAnimationView;
+
 public class Home_Screen extends AppCompatActivity {
 
-        Handler h= new Handler(); //creo un hendler che mi permette di definire per quanto tempo la mia schermata home sarà visibile
+    LottieAnimationView loading;
+
+    Handler h= new Handler(); //creo un hendler che mi permette di definire per quanto tempo la mia schermata home sarà visibile
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
 
         getSupportActionBar().hide();
+
+        loading = findViewById(R.id.loading);
+        loading.playAnimation();
 
         h.postDelayed(new Runnable() {
             @Override
@@ -26,6 +33,6 @@ public class Home_Screen extends AppCompatActivity {
                 finish();
 
             }
-        },4000);//definisco la durata della mia schermata in millisec
+        },3500);//definisco la durata della mia schermata in millisec
     }
 }

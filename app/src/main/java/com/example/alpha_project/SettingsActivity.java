@@ -9,11 +9,14 @@ import android.transition.Explode;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.airbnb.lottie.LottieAnimationView;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -35,12 +38,24 @@ public class SettingsActivity extends AppCompatActivity {
     public static final String Email = "emailKey";
     public static final String Ins = "insKey";
     public static final String Linke = "linkeKey";
+
+
+    private boolean save=false, reset=false;
+    LottieAnimationView usericon;
+    LottieAnimationView lottiereset;
+    LottieAnimationView lottiesave;
+
+    ImageButton back;
+
     SharedPreferences sharedpreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
         getSupportActionBar().hide();
+
+        usericon = findViewById(R.id.usericon);
+        usericon.playAnimation();
 
 
 
@@ -70,12 +85,26 @@ public class SettingsActivity extends AppCompatActivity {
         etins.setText(i);
         etlinke.setText(l);
 
-        Button b1 = (Button) findViewById(R.id.save);
+         lottiesave = findViewById(R.id.lottiesave);
+
+       //Button b1 = (Button) findViewById(R.id.save);
         // è il tasto per salvare i dati
 
-        b1.setOnClickListener(new View.OnClickListener() {
+        lottiesave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+                if(save){
+                    lottiesave.setMinAndMaxProgress(1.0f,1.0f);
+                    lottiesave.playAnimation();
+                    save = false;
+                } else {
+                    lottiesave.setMinAndMaxProgress(0.0f,1.0f);
+                    lottiesave.playAnimation();
+                    save = true;
+
+                }
 
                 String n = etname.getText().toString();
                 String su = etsurname.getText().toString();
@@ -100,19 +129,30 @@ public class SettingsActivity extends AppCompatActivity {
         });
 
 
-        Button reset = (Button) findViewById(R.id.RESETBTN);
-
-        reset.setOnClickListener(new View.OnClickListener() {
+       // Button reset = (Button) findViewById(R.id.RESETBTN);
+        lottiereset = findViewById(R.id.lottiereset);
+        lottiereset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if(reset){
+                    lottiereset.setMinAndMaxProgress(1.0f,1.0f);
+                    lottiereset.playAnimation();
+                    reset = false;
+                } else {
+                    lottiereset.setMinAndMaxProgress(0.0f,1.0f);
+                    lottiereset.playAnimation();
+                    reset = true;
+
+                }
                 openReset();
             }
 
         });
 
-        Button indietro = (Button) findViewById(R.id.ritorno);
-
-        indietro.setOnClickListener(new View.OnClickListener() {
+       //Button indietro = (Button) findViewById(R.id.ritorno);
+        back = findViewById(R.id.ritorno);
+        back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openReturn();
