@@ -166,16 +166,17 @@ public class SettingsActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 try {
-                        File vdfdirectory = createDirectory(VCF_DIRECTORY);
-                        Toast.makeText(SettingsActivity.this, "path : "+ vdfdirectory.getPath(), Toast.LENGTH_LONG).show();
-
+                    // creazione directory vcf per la prima volta
+                    File vcfdirectory = new File(getExternalFilesDir(null) + VCF_DIRECTORY); // riferimento file
+                    if (!vcfdirectory.exists()) // controllo esistenza directory
+                        vcfdirectory = createDirectory(VCF_DIRECTORY);
 
                     // have the object build the directory structure, if needed.
 
                     /*Following line specifies name of the VCF or vCard file.
                     Here, we will fetch current time as a name of vCard file.
                     It also includes millisecond so that always, unique name will be generated.*/
-                    vcfFile = new File(vdfdirectory, "N:"+etname.getText().toString()+" "+etsurname.getText().toString()+ Calendar.getInstance().getTimeInMillis() + ".vcf");
+                    vcfFile = new File(vcfdirectory, "N:"+etname.getText().toString()+" "+etsurname.getText().toString()/*+ Calendar.getInstance().getTimeInMillis()*/ + ".vcf");
 
                     FileWriter fw = null;
                     //below code will generate VCF or vCard file
@@ -206,13 +207,9 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     private File createDirectory(String vcfDirectory) {
-        File file = new File(getExternalFilesDir(null) + "/" + vcfDirectory);
-        boolean success = true;
-        if (!file.exists()) {
-            success = file.mkdir();
-        }
-        if(success)
-            Toast.makeText(getApplicationContext(),"Directory created successfully",Toast.LENGTH_LONG).show();
+        File file = new File(getExternalFilesDir(null) /*+ "/" */+ vcfDirectory);
+        file.mkdir();
+        Toast.makeText(getApplicationContext(), "Directory created successfully", Toast.LENGTH_LONG).show();
         return file;
     }
     /*  Metodo reset button*/

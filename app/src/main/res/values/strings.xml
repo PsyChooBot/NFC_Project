@@ -24,4 +24,7 @@
     <string name="save">Save</string>
     <string name="vcard">Create a vcard</string>
 
+    <!--variabili schermata di nfc-->
+    <string name="Send">Send vcard</string>
+
 </resources>
