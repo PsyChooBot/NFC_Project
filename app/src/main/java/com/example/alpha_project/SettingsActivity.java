@@ -22,7 +22,7 @@ public class SettingsActivity extends AppCompatActivity {
 
     protected EditText etname, etphon,etmail,etsurname, etins, etlinke, etAddr, etTwit, etNote;
 
-    private Button btn;
+    private ImageButton btn;
     private static final String VCF_DIRECTORY = "/vcf_contact";
     private File vcfFile;
 
@@ -174,7 +174,7 @@ public class SettingsActivity extends AppCompatActivity {
 
         });
         //Bottone per creare il file vcf
-        btn = (Button) findViewById(R.id.btn);
+        btn = findViewById(R.id.btn);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
