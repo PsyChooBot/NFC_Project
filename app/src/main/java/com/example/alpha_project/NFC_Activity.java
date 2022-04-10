@@ -26,6 +26,8 @@ public class NFC_Activity extends AppCompatActivity {
 
     private static final int PICKFILE_VCF_FILE= 1;
 
+    private boolean send=false;
+    LottieAnimationView lottiesend; // animazione bottone di share
 
 
     @Override
@@ -35,17 +37,43 @@ public class NFC_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_nfc);
         getSupportActionBar().hide();
         check_en_NFC_ABeam(); // controllo nfc attivo e beam attivo
+
+        lottiesend = findViewById(R.id.send);
+        lottiesend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(send){
+                    lottiesend.setMinAndMaxProgress(1.0f,1.0f);
+                    lottiesend.playAnimation();
+                    send = false;
+                } else {
+                    lottiesend.setMinAndMaxProgress(0.0f,1.0f);
+                    lottiesend.playAnimation();
+                    send = true;
+                }
+
+                Handler h= new Handler();
+                h.postDelayed(new Runnable()
+                {
+                    @Override
+                    public void run() {
+                        sendFile();
+                    }
+                },1500);//definisco la durata della schermata in millisec
+
+            }
+        });
+
     }
 
-    public void sendFile(View view) // funzione di selezione file da inviare
+    public void sendFile() // funzione di selezione file da inviare
     {
         Intent chooseFile = new Intent(Intent.ACTION_GET_CONTENT);
         chooseFile.setType("*/*"); // tipo generale
         chooseFile.addCategory(Intent.CATEGORY_OPENABLE);
         startActivityForResult(chooseFile, PICKFILE_VCF_FILE);
-        Toast.makeText(this, "Seleziona un vcard", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Seleziona un Vcard", Toast.LENGTH_LONG).show();
     }
-
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent resultData) // effettivo invio vcf file
     {
@@ -61,7 +89,7 @@ public class NFC_Activity extends AppCompatActivity {
                     nfcAdapter = NfcAdapter.getDefaultAdapter(this);
                     nfcAdapter.setBeamPushUris(new Uri[] {uriVcf}, this); // vcf file accodato su android beam
                     Toast.makeText(this, "Avvicina il secondo dispositivo! L'invio rimarrà attivo per 45s.", Toast.LENGTH_LONG).show();
-                    // possibile schermata dell'invio //aggiungere modo per concludere la trasmissione file
+
                 } catch (Exception e) {
                     Toast.makeText(this, "Qualcosa è andato storto riprovare l'invio", Toast.LENGTH_LONG).show();
                 }
@@ -74,7 +102,7 @@ public class NFC_Activity extends AppCompatActivity {
                     @Override
                     public void run() {
                         //tempo attesa prima di tornare nella main activity (pairing tramite nfc)
-                        Toast.makeText(NFC_Activity.this, "Time exceeded", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(NFC_Activity.this, "Time exceeded", Toast.LENGTH_SHORT).show(); // problema di più send file cliccati
                         finish();
                     }
                 },45000);//definisco la durata della schermata in millisec

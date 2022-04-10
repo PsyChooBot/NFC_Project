@@ -18,7 +18,7 @@
             android:layout_height="166dp"
             app:lottie_rawRes="@raw/usericon" />
 
-    <TextView
+        <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
@@ -79,6 +79,23 @@
         android:hint="@string/email"
         android:inputType="textEmailAddress"
         android:autofillHints="" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:text="@string/Indirizzo"
+            />
+
+        <EditText android:id="@+id/address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/addr"
+            android:autofillHints="" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -89,12 +106,31 @@
         android:text="@string/instagram"
         />
 
-    <EditText android:id="@+id/instagram"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/ins"
-        tools:ignore="TextFields"
-        android:autofillHints="" />
+        <EditText android:id="@+id/instagram"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/ins"
+            tools:ignore="TextFields"
+            android:autofillHints="" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:text="@string/twitter"
+            />
+
+        <EditText android:id="@+id/twitter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textUri"
+            android:hint="@string/Twitter"
+            tools:ignore="TextFields"
+            android:autofillHints="" />
+
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -112,6 +148,24 @@
         android:hint="@string/Linkedin"
         tools:ignore="TextFields"
         android:autofillHints="" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:text="@string/note"
+            />
+        <EditText
+            android:id="@+id/note"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/Note"
+            tools:ignore="TextFields"
+            android:autofillHints="" />
+
 
 
         <LinearLayout

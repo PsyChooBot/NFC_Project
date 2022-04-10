@@ -7,18 +7,26 @@
     <string name="example">Example</string>
 
     <!--variabili schermata di settings-->
-    <string name="nome">Name</string>
-    <string name="name">Enter your Name</string>
-    <string name="cognome">Surname</string>
-    <string name="surname">Enter your Surname</string>
-    <string name="numero_telefono">Phone Number</string>
-    <string name="contact">Enter your Phone Number</string>
+    <string name="nome">Nome</string>
+    <string name="name">Inserisci il tuo nome</string>
+    <string name="cognome">Cognome</string>
+    <string name="surname">Inserisci il tuo cognome</string>
+    <string name="numero_telefono">Telefono</string>
+    <string name="contact">Inserisci il tuo numero di telefono</string>
     <string name="mail">E-Mail</string>
-    <string name="email">Enter your E-Mail</string>
-    <string name="instagram">Instagram ID</string>
-    <string name="ins">Enter your Instagram ID</string>
-    <string name="linkedin">LinkedIn ID</string>
-    <string name="Linkedin">Enter your LinkedIn ID</string>
+    <string name="email">Inserisci la tua mail</string>
+
+    <string name="Indirizzo">Indirizzo</string>
+    <string name="addr">Inserisci un indirizzo</string>
+    <string name="instagram">Instagram</string>
+    <string name="ins">Username</string>
+    <string name="twitter">Twitter</string>
+    <string name="Twitter">Username</string>
+    <string name="linkedin">LinkedIn</string>
+    <string name="Linkedin">Inserisci il link</string>
+    <string name="note">Note:</string>
+    <string name="Note">Inserisci qualche appunto</string>
+
     <string name="reset">Reset</string>
     <string name="ritorno">Return</string>
     <string name="save">Save</string>
