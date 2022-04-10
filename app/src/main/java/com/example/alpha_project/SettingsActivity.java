@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -137,8 +136,8 @@ public class SettingsActivity extends AppCompatActivity {
 
                 editor.apply();
                 Toast.makeText(getApplicationContext(), "Saved"+" \nName -  " + etname.getText().toString() + " \n" + "Cognome -  " + etsurname.getText().toString()
-                        + "\nE-Mail -  " + etmail.getText().toString() + " \n" + "Contact -  " + etphon.getText().toString()+ "\nInstagram -  " + etins.getText().toString()
-                        +"\nLinkedin -  " + etlinke.getText().toString(), Toast.LENGTH_SHORT).show();
+                        + "\nE-Mail -  " + etmail.getText().toString() + " \n" + "Contact -  " + etphon.getText().toString()+ " \n" + "Indirizzo -  " + etAddr.getText().toString()+ "\nInstagram -  " + etins.getText().toString()
+                        +"\nTwitter -  " + etTwit.getText().toString()+"\nLinkedin -  " + etlinke.getText().toString(), Toast.LENGTH_SHORT).show();
             }
         });
 
