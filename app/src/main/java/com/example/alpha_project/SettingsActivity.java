@@ -24,7 +24,7 @@ public class SettingsActivity extends AppCompatActivity {
     private ImageButton btn;
     private static final String VCF_DIRECTORY = "/vcf_contact";
     private File vcfFile;
-
+    // i vari nomi che assegnano a ciascuna preferenza >> key
     public static final String MyPREFERENCES = "MyPrefs" ;
     public static final String Name = "nameKey";
     public static final String Surname = "surnameKey";
@@ -43,8 +43,10 @@ public class SettingsActivity extends AppCompatActivity {
     LottieAnimationView lottiesave;
 
     ImageButton back;
+    //oggetto SharedPreferences punta ad un file contenente le coppie key-value
+    //
+    SharedPreferences sharedpreferences; // creo un file di tipo sharedpreference
 
-    SharedPreferences sharedpreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,7 +73,8 @@ public class SettingsActivity extends AppCompatActivity {
         /* Imposto i valori dell'EditText con i valori memorizzati : per esempio quando esco dall'activity setting e ritorno al main avendo richiamato nel codice onPause salvo 
         le varie informazioni e se non avevo scritto niente di default salvo il valore di default*/
         sharedpreferences = getSharedPreferences(MyPREFERENCES,MODE_PRIVATE);
-        String n = sharedpreferences.getString(Name,null);
+        // genero il file MyPREFERENCES in modalità privata
+        String n = sharedpreferences.getString(Name,null); //Recupera un valore String dall’editor di preferenze
         String su = sharedpreferences.getString(Surname,null);
         String ph = sharedpreferences.getString(Phone,null);
         String e = sharedpreferences.getString(Email,null);
@@ -81,7 +84,7 @@ public class SettingsActivity extends AppCompatActivity {
         String t = sharedpreferences.getString(Twit,null);
         String no = sharedpreferences.getString(Note,null);
 
-        etname.setText(n);
+        etname.setText(n); // recupero input dell'utente dall'EditText e con setText assegno tali valori alle stringhe/variabili del file shredpreferences.
         etsurname.setText(su);
         etphon.setText(ph);
         etmail.setText(e);
@@ -111,7 +114,7 @@ public class SettingsActivity extends AppCompatActivity {
                     save = true;
 
                 }
-
+                // input che voglio salvare quando clicco save
                 String n = etname.getText().toString();
                 String su = etsurname.getText().toString();
                 String ph = etphon.getText().toString();
@@ -123,7 +126,8 @@ public class SettingsActivity extends AppCompatActivity {
                 String no = etNote.getText().toString();
 
 
-                SharedPreferences.Editor editor = sharedpreferences.edit();
+                SharedPreferences.Editor editor = sharedpreferences.edit(); //’interfaccia utilizzata per modificare i  valori di un oggetto SharedPreferences.
+
                 editor.putString(Name, n);
                 editor.putString(Surname, su);
                 editor.putString(Phone, ph);
@@ -134,7 +138,7 @@ public class SettingsActivity extends AppCompatActivity {
                 editor.putString(Twit, t);
                 editor.putString(Note, no);
 
-                editor.apply();
+                editor.apply(); // applico le modifiche fatte
                 Toast.makeText(getApplicationContext(), "Saved"+" \nName -  " + etname.getText().toString() + " \n" + "Cognome -  " + etsurname.getText().toString()
                         + "\nE-Mail -  " + etmail.getText().toString() + " \n" + "Contact -  " + etphon.getText().toString()+ " \n" + "Indirizzo -  " + etAddr.getText().toString()+ "\nInstagram -  " + etins.getText().toString()
                         +"\nTwitter -  " + etTwit.getText().toString()+"\nLinkedin -  " + etlinke.getText().toString(), Toast.LENGTH_SHORT).show();
@@ -190,7 +194,7 @@ public class SettingsActivity extends AppCompatActivity {
                     Here, we will fetch current time as a name of vCard file.
                     It also includes millisecond so that always, unique name will be generated.*/
                     vcfFile = new File(vcfdirectory, "N:"/*inserire tipologia vcard: lavoro, personale, immmediato*/+etname.getText().toString()+" "+etsurname.getText().toString() + ".vcf");
-
+                    // file di tipo vcard
                     FileWriter fw = null;
                     //below code will generate VCF or vCard file
                     fw = new FileWriter(vcfFile);
@@ -234,7 +238,7 @@ public class SettingsActivity extends AppCompatActivity {
     /*  Metodo reset button*/
   @SuppressLint("SetTextI18n")
   public void openReset(){
-      etname.setText(null);
+      etname.setText(null); //reset di input edittext
       etsurname.setText(null);
       etphon.setText(null);
       etins.setText(null);
@@ -245,7 +249,7 @@ public class SettingsActivity extends AppCompatActivity {
       etNote.setText(null);
 
 
-      String n = etname.getText().toString();
+      String n = etname.getText().toString(); // assegnazione stringhe e testo vuoto
       String su = etsurname.getText().toString();
       String ph = etphon.getText().toString();
       String e = etmail.getText().toString();
@@ -256,7 +260,7 @@ public class SettingsActivity extends AppCompatActivity {
       String no = etNote.getText().toString();
 
 
-      SharedPreferences.Editor editor = sharedpreferences.edit();
+      SharedPreferences.Editor editor = sharedpreferences.edit(); // apro interfaccia Editor
       editor.putString(Name, n);
       editor.putString(Surname, su);
       editor.putString(Phone, ph);
