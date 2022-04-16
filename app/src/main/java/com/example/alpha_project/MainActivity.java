@@ -16,7 +16,7 @@ import com.airbnb.lottie.LottieAnimationView;
 public class MainActivity extends AppCompatActivity {
     private  ImageButton settings;
 
-    private boolean play=false;
+    private boolean play=false;// creon un boolean per gestire la parte di animazione
  LottieAnimationView lottiePlay;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
             finish();
         }
 
-        getSupportActionBar().hide();
+        getSupportActionBar().hide(); /*serve a nascondere l'action bar per rendere layout più piacevolee da vedere*/
 
         lottiePlay = findViewById(R.id.lottiePlay);
 

@@ -10,7 +10,7 @@ import com.airbnb.lottie.LottieAnimationView;
 
 public class Home_Screen extends AppCompatActivity {
 
-    LottieAnimationView loading;
+    LottieAnimationView loading; /*creo una variabile di tipo lottie che mi permette poi di gestire lanimation*/
 
     Handler h= new Handler(); //creo un hendler che mi permette di definire per quanto tempo la mia schermata home sarà visibile
     @Override
@@ -20,7 +20,7 @@ public class Home_Screen extends AppCompatActivity {
 
         getSupportActionBar().hide();
 
-        loading = findViewById(R.id.loading);
+        loading = findViewById(R.id.loading);/*connessione della variabile di animazione con l'equivalente xml e avvio animazione*/
         loading.playAnimation();
 
         h.postDelayed(new Runnable() {

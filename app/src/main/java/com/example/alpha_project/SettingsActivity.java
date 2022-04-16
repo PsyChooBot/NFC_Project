@@ -44,7 +44,7 @@ public class SettingsActivity extends AppCompatActivity {
 
     ImageButton back;
     //oggetto SharedPreferences punta ad un file contenente le coppie key-value
-    //
+
     SharedPreferences sharedpreferences; // creo un file di tipo sharedpreference
 
     @Override
@@ -146,7 +146,7 @@ public class SettingsActivity extends AppCompatActivity {
         });
 
 
-       // Button reset = (Button) findViewById(R.id.RESETBTN);
+       //creazione reset button
         lottiereset = findViewById(R.id.lottiereset);
         lottiereset.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -167,7 +167,7 @@ public class SettingsActivity extends AppCompatActivity {
 
         });
 
-       //Button indietro = (Button) findViewById(R.id.ritorno);
+       //Button indietro
         back = findViewById(R.id.ritorno);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
