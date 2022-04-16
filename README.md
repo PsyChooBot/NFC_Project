@@ -2,7 +2,7 @@
 contacts sharing app using nfc tecnology
 Creating an app that is able to use android beam  to share files.
 
-In particura our app meant to allow an user to share his contacts (Name,Adress,Phone Number, Instagram....) to another user even idf the later one does not posses the app.
+In particular our app meant to allow an user to share his contacts (Name,Adress,Phone Number, Instagram....) to another user even idf the later one does not posses the app.
 
 The only hardware requirement is that both users device has the Android Beam (Huawei Beam) function enabled.
 
